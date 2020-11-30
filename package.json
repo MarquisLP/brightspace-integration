@@ -95,6 +95,7 @@
     "eslint-config-brightspace": "^0.9",
     "eslint-plugin-html": "^6",
     "eslint-plugin-sort-class-members": "^1",
+    "file-drop-element": "^1.0.1",
     "frau-publisher": "^2",
     "glob": "^7",
     "intl-messageformat-parser": "^3",
