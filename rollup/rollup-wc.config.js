@@ -83,6 +83,7 @@ const appFiles = [
 	'./node_modules/@brightspace-hmc/foundation-components/components/activity/editor/d2l-hc-activity-editor.js',
 	'./node_modules/d2l-activities/components/d2l-activity-editor/d2l-activity-assignment-editor/d2l-activity-assignment-editor.js',
 	'./node_modules/d2l-activities/components/d2l-activity-editor/d2l-activity-quiz-editor/d2l-activity-quiz-editor.js',
+	'./node_modules/d2l-activities/components/d2l-work-to-do/d2l-work-to-do.js',
 	'./node_modules/d2l-engagement-dashboard/engagement-dashboard.js',
 	'./web-components/d2l-activity-alignments.js',
 	'./web-components/d2l-activity-collections.js',
