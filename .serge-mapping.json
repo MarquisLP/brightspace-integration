@@ -1,4 +1,5 @@
 {
   "@d2l/d2l-attachment": "@d2l/d2l-attachment/d2l-attachment.serge.json",
-  "d2l-activities": "d2l-activities/activities.serge.json"
+  "d2l-activities": "d2l-activities/activities.serge.json",
+  "d2l-engagement-dashboard": "d2l-engagement-dashboard/insights-engagement-dashboard.serge.json"
 }

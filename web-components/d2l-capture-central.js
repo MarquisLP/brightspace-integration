@@ -1,1 +1,1 @@
-import 'd2l-capture-central/d2l-capture-central.js';
+import 'd2l-capture-central/src/d2l-capture-central.js';

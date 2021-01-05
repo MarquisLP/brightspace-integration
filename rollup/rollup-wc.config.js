@@ -104,10 +104,12 @@ const appFiles = [
 	'./web-components/d2l-outcomes-user-progress.js',
 	'./web-components/d2l-program-outcomes-picker.js',
 	'./web-components/d2l-quick-eval.js',
+	'./node_modules/d2l-activities/components/d2l-quick-eval-widget/d2l-quick-eval-widget.js',
 	'./web-components/d2l-content-store.js',
 	'./node_modules/d2l-content-store-add-content/d2l-content-store-add-content.js',
 	'./web-components/d2l-capture-central.js',
 	'./web-components/d2l-consistent-evaluation.js',
+	'./node_modules/d2l-consistent-evaluation/consistent-evaluation-popup-rubric.js',
 	'./web-components/d2l-content-creation.js',
 	'./web-components/d2l-user-feedback.js',
 	'./node_modules/d2l-teacher-course-creation/src/components/d2l-teacher-course-creation.js',
@@ -117,6 +119,7 @@ const appFiles = [
 // NOTE: Ideally these should all be dynamically imported by apps.
 //       Please don't add new entries to this list.
 const staticFiles = [
+	'node_modules/@brightspace-ui/htmleditor/tinymce/**',
 	'node_modules/@d2l/d2l-attachment/locales/*.json',
 	'node_modules/@d2l/d2l-attachment/icons/*.svg',
 	'node_modules/d2l-activities/components/d2l-activity-collection-editor/lang/*.js',
