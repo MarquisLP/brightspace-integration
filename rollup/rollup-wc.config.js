@@ -1,6 +1,7 @@
 import { createBasicConfig } from '@open-wc/building-rollup';
 import copy from 'rollup-plugin-copy';
 import replace from '@rollup/plugin-replace';
+import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 import merge from 'deepmerge';
 
 const componentFiles = [
@@ -15,6 +16,7 @@ const componentFiles = [
 	'./node_modules/@brightspace-ui/core/components/button/button-icon.js',
 	'./node_modules/@brightspace-ui/core/components/button/button-subtle.js',
 	'./node_modules/@brightspace-ui/core/components/button/floating-buttons.js',
+	'./node_modules/@brightspace-ui/core/components/card/card.js',
 	'./node_modules/@brightspace-ui/core/components/dialog/dialog-fullscreen.js',
 	'./node_modules/@brightspace-ui/core/components/dropdown/dropdown.js',
 	'./node_modules/@brightspace-ui/core/components/dropdown/dropdown-button.js',
@@ -31,8 +33,10 @@ const componentFiles = [
 	'./node_modules/@brightspace-ui/core/components/inputs/input-date-time.js',
 	'./node_modules/@brightspace-ui/core/components/inputs/input-date-time-range.js',
 	'./node_modules/@brightspace-ui/core/components/inputs/input-number.js',
+	'./node_modules/@brightspace-ui/core/components/inputs/input-percent.js',
 	'./node_modules/@brightspace-ui/core/components/inputs/input-search.js',
 	'./node_modules/@brightspace-ui/core/components/inputs/input-text.js',
+	'./node_modules/@brightspace-ui/core/components/inputs/input-textarea.js',
 	'./node_modules/@brightspace-ui/core/components/inputs/input-time.js',
 	'./node_modules/@brightspace-ui/core/components/inputs/input-time-range.js',
 	'./node_modules/@brightspace-ui/core/components/loading-spinner/loading-spinner.js',
@@ -53,7 +57,6 @@ const componentFiles = [
 	'./node_modules/d2l-activities/components/d2l-subtitle/d2l-subtitle.js',
 	'./node_modules/d2l-button-group/d2l-button-group.js',
 	'./node_modules/d2l-button-group/d2l-action-button-group.js',
-	'./node_modules/d2l-inputs/d2l-input-textarea.js',
 	'./node_modules/d2l-navigation/d2l-navigation-band.js',
 	'./node_modules/d2l-navigation/d2l-navigation-button-notification-icon.js',
 	'./node_modules/d2l-navigation/d2l-navigation-button.js',
@@ -77,7 +80,8 @@ const componentFiles = [
 	'./web-components/d2l-simple-overlay.js',
 	'./web-components/d2l-table.js',
 	'./web-components/d2l-tabs.js',
-	'./web-components/intl-messageformat-parser.js'
+	'./web-components/intl-messageformat-parser.js',
+	'./web-components/mathjax.js'
 ];
 const appFiles = [
 	'./node_modules/@brightspace-hmc/foundation-components/components/activity/editor/d2l-hc-activity-editor.js',
@@ -149,13 +153,16 @@ export default merge(config, {
 	plugins: [
 		copy({
 			targets: staticFiles.map((f) => {
-				return {src: f, dest: 'build/unbundled/node_modules'};
+				return { src: f, dest: 'build/unbundled/node_modules' };
 			}),
 			flatten: false
 		}),
 		replace({
 			define: 'defineNoYouDont', /* prevents UMD time bomb as fastdom will try to call define() on UMD FRA pages */
 			include: ['node_modules/fastdom/fastdom.js', 'node_modules/focus-visible/dist/focus-visible.js']
+		}),
+		dynamicImportVars({
+			exclude: 'node_modules/d2l-html-editor/d2l-html-editor.js',
 		})
 	]
 });
