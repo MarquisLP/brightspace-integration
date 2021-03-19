@@ -20,8 +20,15 @@ There are two ways to build and run a local BSI, both with their pros & cons.
 Use this build for rapid local development. It supports hot reloading, meaning local changes will automatically be picked up after reloading your browser. The build output is less optimized, so in-browser performance may be slightly degraded.
 
 ```shell
-# starts a server on port 8080
+# starts a server on http://localhost:8080
 npm start
+```
+
+> You can override the development server hostname and port using:
+
+```shell
+# starts a server on http://examplehost.d2l:8888
+npm start --port=8888 --hostname=examplehost.d2l
 ```
 
 **Important:** make sure the Brightspace instance using this build of BSI is [configured to be in "development" mode](#configuring-brightspace-to-use-a-local-bsi).

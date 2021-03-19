@@ -6,6 +6,9 @@ import merge from 'deepmerge';
 
 const componentFiles = [
 	'./web-components/bsi-unbundled.js',
+	'./node_modules/@brightspace/content-components/components/d2l-content-service-viewer/d2l-content-service-viewer.js',
+	'./node_modules/@brightspace/content-components/components/d2l-content-uploader/d2l-content-uploader.js',
+	'./node_modules/@brightspace/content-components/components/d2l-video-producer/d2l-video-producer.js',
 	'./node_modules/@brightspace-ui/core/components/alert/alert.js',
 	'./node_modules/@brightspace-ui/core/components/alert/alert-toast.js',
 	'./node_modules/@brightspace-ui/core/components/backdrop/backdrop.js',
@@ -84,7 +87,10 @@ const componentFiles = [
 	'./web-components/mathjax.js'
 ];
 const appFiles = [
+	'./node_modules/@brightspace/content-components/components/d2l-content-store/d2l-content-store.js',
+	'./node_modules/@brightspace/content-components/components/d2l-capture-central/d2l-capture-central.js',
 	'./node_modules/@brightspace-hmc/foundation-components/components/activity/editor/d2l-hc-activity-editor.js',
+	'./node_modules/@brightspace-hmc/foundation-components/features/discover/d2l-discover-sample-button.js',
 	'./node_modules/d2l-activities/components/d2l-activity-editor/d2l-activity-assignment-editor/d2l-activity-assignment-editor.js',
 	'./node_modules/d2l-activities/components/d2l-activity-editor/d2l-activity-quiz-editor/d2l-activity-quiz-editor.js',
 	'./node_modules/d2l-activities/components/d2l-work-to-do/d2l-work-to-do.js',
@@ -118,7 +124,8 @@ const appFiles = [
 	'./web-components/d2l-user-feedback.js',
 	'./node_modules/d2l-teacher-course-creation/src/components/d2l-teacher-course-creation.js',
 	'./node_modules/d2l-teacher-course-creation/src/components/d2l-teacher-course-creation-admin.js',
-	'./node_modules/d2l-outcomes-overall-achievement/src/mastery-view-table/mastery-view-table.js'
+	'./node_modules/d2l-outcomes-overall-achievement/src/mastery-view-table/mastery-view-table.js',
+	'./node_modules/d2l-quiz-components/src/components/d2l-activity-question-points.js'
 ];
 // NOTE: Ideally these should all be dynamically imported by apps.
 //       Please don't add new entries to this list.
@@ -159,7 +166,12 @@ export default merge(config, {
 		}),
 		replace({
 			define: 'defineNoYouDont', /* prevents UMD time bomb as fastdom will try to call define() on UMD FRA pages */
-			include: ['node_modules/fastdom/fastdom.js', 'node_modules/focus-visible/dist/focus-visible.js']
+			include: ['node_modules/fastdom/fastdom.js', 'node_modules/focus-visible/dist/focus-visible.js'],
+			preventAssignment: true
+		}),
+		replace({
+			'process.env.NODE_ENV': JSON.stringify('production'),
+			preventAssignment: true
 		}),
 		dynamicImportVars({
 			exclude: 'node_modules/d2l-html-editor/d2l-html-editor.js',

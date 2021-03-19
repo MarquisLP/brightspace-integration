@@ -11,17 +11,21 @@ const Serge = require('./Serge');
 
 const Languages = [
 	new Lang('ar-sa', 'ar', 'ar-SA'),
+	new Lang('cy-gb', 'cy', 'cy-GB'),
 	new Lang('da-dk', 'da', 'da-DK'),
 	new Lang('de-de', 'de', 'de-DE'),
+	new Lang('es-es', 'es-es', 'es-ES'),
 	new Lang('es-mx', 'es', 'es-MX'),
 	new Lang('fr-ca', 'fr', 'fr-CA'),
+	new Lang('fr-fr', 'fr-fr', 'fr-FR'),
+	new Lang('fr-on', 'fr-on', 'fr-ON'),
 	new Lang('ja-jp', 'ja', 'ja-JP'),
 	new Lang('ko-kr', 'ko', 'ko-KR'),
 	new Lang('nl-nl', 'nl', 'nl-NL'),
 	new Lang('pt-br', 'pt', 'pt-BR'),
 	new Lang('sv-se', 'sv', 'sv-SE'),
 	new Lang('tr-tr', 'tr', 'tr-TR'),
-	new Lang('zh-cn', 'zh', 'zh-CN'),
+	new Lang('zh-cn', 'zh-cn', 'zh-CN'),
 	new Lang('zh-tw', 'zh-TW', 'zh-TW'),
 ];
 const PackageName = 'WebComponents';

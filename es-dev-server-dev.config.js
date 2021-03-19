@@ -6,7 +6,7 @@ const cors = require('@koa/cors');
 module.exports = {
 	compatibility: 'auto',
 	dedupe: true,
-	hostname: 'localhost',
+	hostname: process.env.npm_config_hostname || 'localhost',
 	middlewares: [
 		cors({ origin: '*' }),
 		function rewrite(context, next) {
@@ -28,6 +28,6 @@ module.exports = {
 			}
 		}
 	],
-	port: 8080,
+	port: parseInt(process.env.npm_config_port) || 8080,
 	preserveSymlinks: true
 };
